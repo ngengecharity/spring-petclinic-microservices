@@ -46,7 +46,7 @@ pipeline {
                     // Archive the package artifact
                     archiveArtifacts artifacts: 'spring-petclinic-/target/.jar', allowEmptyArchive: true
                 }
-            }
-        }
+            }
+        }
     }
 }
