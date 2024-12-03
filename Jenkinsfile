@@ -44,7 +44,7 @@ pipeline {
             post {
                 success {
                     // Archive the package artifact
-                    archiveArtifacts artifacts: 'spring-petclinic-/target/.jar', allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'spring-petclinic-*/target/*.jar', allowEmptyArchive: true
                 }
             }
         }
