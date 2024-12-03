@@ -30,9 +30,7 @@ pipeline {
             post {
                 always {
                     //Archive and publish test results
-                    junit '**/target/surefire-reports/*.xml'
-                }
-            }
+                    junit '/target/surefire-reports/*.xml'
                 }
             }
         }
@@ -46,10 +44,9 @@ pipeline {
             post {
                 success {
                     // Archive the package artifact
-                    archiveArtifacts artifacts: 'spring-petclinic-*/target/*.jar', allowEmptyArchive: true
-
+                    archiveArtifacts artifacts: 'spring-petclinic-/target/.jar', allowEmptyArchive: true
                 }
-            }
-        }
-    }
-}    
+            }
+        }
+    }
+}
