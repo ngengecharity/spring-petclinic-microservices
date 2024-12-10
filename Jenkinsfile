@@ -4,9 +4,10 @@ pipeline {
         maven 'maven38'
     }
 
-        environment {
-		DOCKERHUB_CREDENTIALS=credentials('docker_token')
+    environment {
+        DOCKERHUB_CREDENTIALS=credentials('docker_token')
         DOCKERUSER="charityngenge"
+    }   
 
     stages {
         
@@ -72,4 +73,4 @@ pipeline {
             }
         }
     }
-}        
+}       
