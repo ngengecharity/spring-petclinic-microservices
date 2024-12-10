@@ -52,8 +52,6 @@ pipeline {
                 }
             }
         }
-    }
-}
         stage('Docker Build Petclinic') {
 
 			steps {
@@ -71,5 +69,7 @@ pipeline {
 
 			steps {
 				sh 'docker push  $DOCKERUSER/petclinic:${BUILD_NUMBER}-dev'
-			}
-		}
+            }
+        }
+    }
+}        
