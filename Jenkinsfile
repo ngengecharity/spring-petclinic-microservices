@@ -4,6 +4,10 @@ pipeline {
         maven 'maven38'
     }
 
+        environment {
+		DOCKERHUB_CREDENTIALS=credentials('docker_token')
+        DOCKERUSER="charityngenge"
+
     stages {
         
         stage('Credential Scanner for detecting Secrets') {
@@ -50,3 +54,22 @@ pipeline {
         }
     }
 }
+        stage('Docker Build Petclinic') {
+
+			steps {
+				sh 'docker build -t $DOCKERUSER/petclinic:${BUILD_NUMBER}-dev .'
+			}
+		}
+		stage('Login to Docker HUB') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}
+
+		stage('Push Docker Image to Container Registry') {
+
+			steps {
+				sh 'docker push  $DOCKERUSER/petclinic:${BUILD_NUMBER}-dev'
+			}
+		}
