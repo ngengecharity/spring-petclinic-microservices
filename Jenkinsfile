@@ -56,7 +56,7 @@ pipeline {
         stage('Docker Build Petclinic') {
 
 			steps {
-				sh 'docker build -t $DOCKERUSER/petclinic:${BUILD_NUMBER}-dev .'
+				sh 'docker build -t $DOCKERUSER/petclinic:${ARTIFACT_NAME}.jar .'
 			}
 		}
 		stage('Login to Docker HUB') {
@@ -69,7 +69,7 @@ pipeline {
 		stage('Push Docker Image to Container Registry') {
 
 			steps {
-				sh 'docker push  $DOCKERUSER/petclinic:${BUILD_NUMBER}-dev'
+				sh 'docker push  $DOCKERUSER/petclinic:${ARTIFACT_NAME}.jar '
             }
         }
     }
