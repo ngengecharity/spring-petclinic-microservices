@@ -56,6 +56,9 @@ pipeline {
         stage('Docker Build Petclinic') {
 
 			steps {
+                Script {
+                    def MICROSERVICE=${1:-"s1 s2 sn"
+                    For  AARTIFACT_NAME in $MICROSERVICE do;
 				sh 'docker build -t $DOCKERUSER/spring-petclinic:${ARTIFACT_NAME}.jar .'
 			}
 		}
