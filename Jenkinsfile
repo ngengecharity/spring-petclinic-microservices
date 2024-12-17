@@ -57,9 +57,10 @@ pipeline {
 
 			steps {
                 Script {
-                    def MICROSERVICE=${1:-"s1 s2 sn"
-                    For  AARTIFACT_NAME in $MICROSERVICE do;
-				sh 'docker build -t $DOCKERUSER/spring-petclinic:${ARTIFACT_NAME}.jar .'
+                    def MICROSERVICE=${1:-" spring-petclinic-admin-server  spring-petclinic-api-gateway spring-petclinic-config-server spring-petclinic-customers-service spring-petclinic-discovery-server spring-petclinic-vets-service spring-petclinic-visits-service"}
+                    For  ARTIFACT_NAME in $MICROSERVICE do;
+				sh 'docker build -t $DOCKERUSER/${ARTIFACT_NAME}:3.2.7 .'
+                }
 			}
 		}
 		stage('Login to Docker HUB') {
