@@ -72,7 +72,7 @@ pipeline {
                 script {
                     sh '''
                     def MICROSERVICE = "spring-petclinic-admin-server spring-petclinic-api-gateway spring-petclinic-config-server spring-petclinic-customers-service spring-petclinic-discovery-server spring-petclinic-vets-service spring-petclinic-visits-service"
-                    for ARTIFACT_NAME in ''' + MICROSERVICE + '''; do
+                    for ARTIFACT_NAME in $MICROSERVICE; do
                         docker build -t $DOCKERUSER/${ARTIFACT_NAME}:3.2.7 .
                     done
                     '''
