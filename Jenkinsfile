@@ -56,7 +56,7 @@ pipeline {
         stage('Docker Build Petclinic') {
 
 			steps {
-                Script {
+                script {
                     sh '''
                      def MICROSERVICE=${" spring-petclinic-admin-server  spring-petclinic-api-gateway spring-petclinic-config-server spring-petclinic-customers-service spring-petclinic-discovery-server spring-petclinic-vets-service spring-petclinic-visits-service"
                       for ARTIFACT_NAME in $MICROSERVICE; do
