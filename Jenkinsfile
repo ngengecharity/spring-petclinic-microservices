@@ -57,8 +57,8 @@ pipeline {
 
 			steps {
                 script {
-                    sh '''
                      def MICROSERVICE="spring-petclinic-admin-server  spring-petclinic-api-gateway spring-petclinic-config-server spring-petclinic-customers-service spring-petclinic-discovery-server spring-petclinic-vets-service spring-petclinic-visits-service"
+                     sh '''
                       for ARTIFACT_NAME in $MICROSERVICE; do
                           echo "$ARTIFACT_NAME"
                           docker build -t $DOCKERUSER/${ARTIFACT_NAME}:3.2.7 .
