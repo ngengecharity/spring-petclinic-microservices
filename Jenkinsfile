@@ -67,10 +67,9 @@ pipeline {
         //         }
 		// 	}
 		// }
-        stage('Containerize Microservices') {
+        stage('Containerize petclinic') {
             steps {
                 script {
-                    echo 'Building Docker images for microservices...'
                     def MICROSERVICE = "spring-petclinic-admin-server spring-petclinic-api-gateway spring-petclinic-config-server spring-petclinic-customers-service spring-petclinic-discovery-server spring-petclinic-vets-service spring-petclinic-visits-service"
 
                     sh '''
